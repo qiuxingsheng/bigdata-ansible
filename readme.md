@@ -1,4 +1,4 @@
-# fosung-bigdata-ansible
+# bigdata-ansible
 使用ansible自动化部署大数据组件及数据平台应用
 
 注意：所有软件都将安装在 /data 目录下，请提前规划好磁盘存储
