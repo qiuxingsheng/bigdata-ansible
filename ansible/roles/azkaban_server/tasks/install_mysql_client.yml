@@ -1,0 +1,4 @@
+- name: 复制安装文件
+  copy: src=/opt/software/04_mysql-community-client-5.7.16-1.el7.x86_64.rpm dest=/opt/software/
+- name: "安装client"
+  shell: "rpm -ivh /opt/software/04_mysql-community-client-5.7.16-1.el7.x86_64.rpm --force --nodeps"

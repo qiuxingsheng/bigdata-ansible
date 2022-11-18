@@ -1,0 +1,2 @@
+- name: "hive开始，删除老的数据目录"
+  shell: rm -fr /data/hive /data/hive/apache-hive-3.1.2-bin

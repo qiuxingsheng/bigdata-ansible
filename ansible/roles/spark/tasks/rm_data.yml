@@ -1,0 +1,2 @@
+- name: "spark开始，删除老的数据目录"
+  shell: rm -fr /data/spark /data/spark-3.0.0-bin-hadoop3.2

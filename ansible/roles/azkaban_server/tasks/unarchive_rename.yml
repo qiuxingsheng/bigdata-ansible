@@ -1,0 +1,4 @@
+- name: "解压到/data目录"
+  unarchive: 'src=/opt/software/azkaban-web-server-3.84.4.tar.gz  dest=/data/'
+- name: "重命名目录"
+  shell: "mv /data/azkaban-web-server-3.84.4 /data/azkaban_server"

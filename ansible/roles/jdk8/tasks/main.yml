@@ -1,0 +1,5 @@
+- include: rm_openjdk.yml
+- include: rm_data.yml
+- include: unarchive.yml
+- include: rename.yml
+- include: jdk_profile_env.yml

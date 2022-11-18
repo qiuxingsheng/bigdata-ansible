@@ -1,0 +1,8 @@
+- name: 配置免密登录
+  copy: src=my_no_password.cnf dest=/etc/my.cnf
+- name: 启动数据库
+  shell: systemctl start mysqld
+- name: 复制初始化数据库sql
+  template: src=mysql_init.j2 dest=/tmp/mysql_init.sql
+- name: 修改初始密码
+  shell: mysql -h localhost -u root  < /tmp/mysql_init.sql

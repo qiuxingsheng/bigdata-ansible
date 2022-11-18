@@ -1,0 +1,11 @@
+- name: 创建环境路径
+  file:  name=/usr/lib64/python3.6/site-packages state=directory mode=774
+- name: 创建环境路径
+  file:  name=/usr/lib/python3.6/site-packages state=directory mode=774
+- name: 解压依赖包
+  unarchive:  src=/opt/software/task_executor_envs.tar dest=/opt/software/
+- name: 复制到python依赖路径中
+  unarchive:  src=/opt/software/task_executor_envs/lib64/python3.6/site-packages/* dest=/usr/lib64/python3.6/site-packages
+- name: 复制到python依赖路径中
+  unarchive:  src=/opt/software/task_executor_envs/lib/python3.6/site-packages/* dest=/usr/lib/python3.6/site-packages
+

@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<configuration>
+<!-- 指定MR走shuffle -->
+<property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+</property>
+<!-- 环境变量的继承 -->
+<property>
+    <name>yarn.nodemanager.env-whitelist</name>
+    <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
+</property>
+<!-- yarn容器允许分配的最大最小内存 -->
+<property>
+    <name>yarn.scheduler.minimum-allocation-mb</name>
+    <value>1024</value>
+</property>
+<property>
+    <name>yarn.scheduler.maximum-allocation-mb</name>
+    <value>8192</value>
+</property>
+<!-- yarn容器允许管理的物理内存大小 -->
+<property>
+    <name>yarn.nodemanager.resource.memory-mb</name>
+    <value>8192</value>
+</property>
+<!-- yarn容器允许管理的CPU核数大小 -->
+<property>
+  <name>yarn.nodemanager.resource.cpu-vcores</name>
+  <value>6</value>
+</property>
+<property>
+  <name>yarn.scheduler.maximum-allocation-vcores</name>
+  <value>6</value>
+</property>
+<!-- 关闭yarn对虚拟内存的限制检查 -->
+<property>
+    <name>yarn.nodemanager.vmem-check-enabled</name>
+    <value>false</value>
+</property>
+<property>
+    <name>yarn.nodemanager.pmem-check-enabled</name>
+    <value>false</value>
+</property>
+<!-- 开启日志聚集功能 -->
+<property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+</property>
+<!-- 设置日志聚集服务器地址 -->
+<property>
+    <name>yarn.log.server.url</name>
+    <value>http://{{ groups['yarn_log_server'][0] }}:19888/jobhistory/logs</value>
+</property>
+<!-- 设置日志保留时间为7天 -->
+<property>
+    <name>yarn.log-aggregation.retain-seconds</name>
+    <value>604800</value>
+</property>
+<!--启用ResourceManager的高可用-->
+<property>
+  <name>yarn.resourcemanager.ha.enabled</name>
+  <value>true</value>
+</property>
+<!--指代ResourceManager HA的两台RM的逻辑名称 -->
+<property>
+  <name>yarn.resourcemanager.cluster-id</name>
+  <value>rmhacluster1</value>
+</property>
+<!--指定该高可用ResourceManager下的两台ResourceManager的逻辑名称-->
+<property>
+  <name>yarn.resourcemanager.ha.rm-ids</name>
+  <value>{% for vhost in groups['resource_manager'] %}rm{{ loop.index }}{% if loop.index != groups['resource_manager']|length %},{% endif %}{% endfor %}</value>
+<!--  <value>rm1,rm2</value> -->
+</property>
+<!--指定第一台ResourceManager服务器所在的主机名称 -->
+
+{% for vhost in groups['resource_manager'] %}
+
+<property>
+  <name>yarn.resourcemanager.hostname.rm{{ loop.index }}</name>
+  <value>{{ vhost }}</value>
+</property>
+<!--指定resourcemanager的web服务器的主机名和端口号-->
+<property>
+  <name>yarn.resourcemanager.webapp.address.rm{{ loop.index }}</name>
+  <value>{{ vhost }}:8088</value>
+</property>
+
+{% endfor %}
+
+<!--做ResourceManager HA故障切换用到的zookeeper集群地址 -->
+<property>
+  <name>yarn.resourcemanager.zk-address</name>
+  <value>{% for vhost in groups['zk'] %}{{ vhost }}:2181{% if loop.index != groups['zk']|length %},{% endif %}{% endfor %}</value>
+</property>
+<property>
+  <name>yarn.nodemanager.address</name>
+  <value>0.0.0.0:8043</value>
+</property>
+
+</configuration>

@@ -1,0 +1,29 @@
+export JAVA_HOME=/data/jdk
+YARN_CONF_DIR=/data/hadoop/etc/hadoop
+export SPARK_HISTORY_OPTS="
+-Dspark.history.ui.port=18080
+-Dspark.history.fs.logDirectory=hdfs://mycluster/spark-history
+-Dspark.history.retainedApplications=30"
+
+# 重定义spark pid文件存储路径
+export SPARK_PID_DIR=/data/pids/spark
+# 重定义log日志存储路径
+export SPARK_LOG_DIR=/data/logs/spark
+
+#SPARK HA
+SPARK_MASTER_WEBUI_PORT=8989
+export SPARK_DAEMON_JAVA_OPTS="
+-Dspark.deploy.recoveryMode=ZOOKEEPER
+-Dspark.deploy.zookeeper.url={% for vhost in groups['zk'] %}{{ vhost }}{% if loop.index != groups['zk']|length %},{% endif %}{% endfor %}
+-Dspark.history.retainedApplications=30"
+
+
+
+# worker可用核数
+SPARK_WORKER_CORES=12 
+# worker可用内存
+SPARK_WORKER_MEMORY=22g
+# worker端口号
+SPARK_WORKER_PORT=8988
+# worker前端端口号 默认8081会和azkaban冲突
+SPARK_WORKER_WEBUI_PORT=8987

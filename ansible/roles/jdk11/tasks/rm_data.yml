@@ -1,0 +1,2 @@
+- name: "jdk11开始，删除老的数据目录"
+  shell: rm -f -r /data/jdk-11.0.15  /data/jdk11

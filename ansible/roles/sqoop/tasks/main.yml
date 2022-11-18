@@ -1,0 +1,4 @@
+- include: rm_data.yml
+- include: unarchive_rename.yml
+- include: config.yml
+- include: sqoop_profile_env.yml

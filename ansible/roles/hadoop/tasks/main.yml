@@ -1,0 +1,7 @@
+- include: stop_firewall.yml
+- include: rm_data.yml
+- include: mkdir_data.yml
+- include: unarchive.yml
+- include: rename.yml
+- include: hadoop_profile_env.yml
+- include: config.yml

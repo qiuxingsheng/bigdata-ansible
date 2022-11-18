@@ -1,0 +1,2 @@
+- name: "sqoop开始，删除老的数据目录"
+  shell: rm -fr /data/sqoop /data/sqoop-1.4.6.bin__hadoop-2.0.4-alpha

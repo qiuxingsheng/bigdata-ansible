@@ -1,0 +1,2 @@
+- name: "创建zk myid 并将hostname写入该文件"
+  shell: echo "{{ zk_myid }}" > /data/datas/zkData/myid

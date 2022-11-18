@@ -1,0 +1,2 @@
+- name: "azkaban exec 配置文件"
+  template: src=azkaban.j2 dest=/data/azkaban_exec/conf/azkaban.properties

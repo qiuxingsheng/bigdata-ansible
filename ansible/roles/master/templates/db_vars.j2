@@ -1,0 +1,7 @@
+# 注意 该文件执行 ansible-playbook  /data/ansible/role_master.yml 任务后会被覆盖
+- db_type: mysql
+- db_host: {% for vhost in groups['mysql'] %}{% if loop.index == groups['mysql']|length %}{{ vhost }}{% endif %}{% endfor %}
+
+- db_port: 3306
+- db_username: root
+- db_password: {{ db_password }}

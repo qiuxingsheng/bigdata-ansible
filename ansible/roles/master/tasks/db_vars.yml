@@ -1,0 +1,4 @@
+- name: "db_vars老的数据目录"
+  shell: rm -f /data/ansible/vars/db_vars.yml
+- name: db_vars
+  template: src=db_vars.j2 dest=/data/ansible/vars/db_vars.yml mode=744

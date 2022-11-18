@@ -1,0 +1,2 @@
+- name: "azkaban exec开始，删除老的数据目录"
+  shell: rm -fr /data/azkaban_exec  /data/azkaban-exec-server-3.84.4

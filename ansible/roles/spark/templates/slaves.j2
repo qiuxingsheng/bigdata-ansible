@@ -1,0 +1,4 @@
+# 添加worker
+{% for vhost in groups['spark_worker'] %} 
+{{ vhost }}
+{% endfor %}

@@ -1,0 +1,14 @@
+spark.eventLog.enabled           true
+spark.eventLog.dir               hdfs://mycluster/spark-history
+spark.yarn.historySevrer.address={{ groups['yarn_log_server'][0] }}:18080
+spark.history.ui.port=18080
+# 增加资源排队等待时间
+spark.sql.broadcastTimeout=3600
+spark.history.fs.cleaner.maxAge 7d
+# 生产spark文件副本数 默认使用hadoop hdfs中配置
+# spark.hadoop.dfs.replication=3
+# 指定driver 和 executor端口范围
+spark.driver.port=10000
+spark.blockManager.port=20000
+# 重试20次代表driver端口范围10000-10020，executor端口范围20000-20020
+spark.port.maxRetries=20

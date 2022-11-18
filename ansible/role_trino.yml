@@ -1,0 +1,11 @@
+---
+- hosts: trino_server
+  remote_user: root
+  roles:
+    - role: jdk11
+    - role: trino_server
+- hosts: trino_exec
+  remote_user: root
+  roles:
+    - role: jdk11
+    - role: trino_exec

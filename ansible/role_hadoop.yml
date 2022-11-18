@@ -1,0 +1,17 @@
+---
+- hosts: hadoop
+  remote_user: root
+  roles:
+    - hadoop
+- hosts: master
+  remote_user: root
+  tasks:
+    - name: 格式化namenode
+      shell:  /tmp/format-namenode.sh
+- hosts: hadoop
+  remote_user: root
+  tasks:
+    - name: 启动hdfs
+      shell:  /data/hadoop/sbin/start-dfs.sh
+    - name: 启动resourcemanager、nodemanager
+      shell:  /data/hadoop/sbin/start-yarn.sh

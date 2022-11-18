@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+<!-- 测试环境指定HDFS副本的数量3 -->
+<property>
+    <name>dfs.replication</name>
+    <value>3</value>
+</property>
+<property>
+   <name>dfs.nameservices</name>
+   <value>mycluster</value>
+</property>
+<property>
+   <name>dfs.ha.namenodes.mycluster</name>
+   <value>{% for vhost in groups['namenode'] %}nn{{ loop.index }}{% if loop.index != groups['namenode']|length %},{% endif %}{% endfor %}</value>
+</property>
+<!-- 默认前两个节点为namenode高可用节点 -->
+{% for vhost in groups['namenode'] %}
+
+<property>
+   <name>dfs.namenode.rpc-address.mycluster.nn{{ loop.index }}</name>
+   <value>{{ vhost }}:8020</value>
+</property>
+{% endfor %}
+<!--声明journalnode集群服务器-->
+<property>
+   <name>dfs.namenode.shared.edits.dir</name>
+   <value>qjournal://{% for vhost in groups['journalnode'] %}{{ vhost }}:8485{% if loop.index != groups['journalnode']|length %};{% endif %}{% endfor %}/mycluster</value>
+</property>
+<!--声明journalnode服务器数据存储目录-->
+<property>
+    <name>dfs.journalnode.edits.dir</name>
+    <value>/data/datas/hadoop/jn</value>
+</property>
+<property>
+   <name>dfs.client.failover.proxy.provider.mycluster</name>
+   <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+</property>
+<property>
+   <name>dfs.ha.fencing.methods</name>
+   <value>
+       sshfence
+       shell(/bin/true)
+   </value>
+</property>
+<property>
+   <name>dfs.ha.fencing.ssh.private-key-files</name>
+   <value>/root/.ssh/id_rsa</value>
+</property>
+<property>
+   <name>dfs.ha.automatic-failover.enabled</name>
+   <value>true</value>
+</property>
+</configuration>

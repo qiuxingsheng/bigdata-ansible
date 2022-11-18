@@ -1,0 +1,4 @@
+- name: 安装dos2nuix
+  shell: rpm -ivh /opt/software/dos2unix-6.0.3-7.el7.x86_64.rpm --force --nodeps
+- name: 格式化换行符
+  shell: find /data/ansible -type f -exec dos2unix {} \;

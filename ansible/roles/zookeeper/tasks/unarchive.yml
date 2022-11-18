@@ -1,0 +1,2 @@
+- name: "解压zk到/data目录"
+  unarchive: 'src=/opt/software/apache-zookeeper-3.6.3-bin.tar.gz dest=/data/'

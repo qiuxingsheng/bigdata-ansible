@@ -1,0 +1,3 @@
+- name: "初始化hive元数据"
+  shell: /data/hive/bin/schematool -initSchema -dbType mysql -verbose
+  run_once: true

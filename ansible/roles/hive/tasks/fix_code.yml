@@ -1,0 +1,7 @@
+- name: "复制解决乱码sql语句到/tmp目录"
+  copy: src=fix_code.sql dest=/tmp
+- name: "解决乱码"
+  shell: " mysql -h {{ db_host }} -u {{ db_username }} -p{{ db_password }} < /tmp/fix_code.sql "
+  run_once: true
+- name: "删除临时sql文件"
+  file: path=/tmp/fix_code.sql state=absent

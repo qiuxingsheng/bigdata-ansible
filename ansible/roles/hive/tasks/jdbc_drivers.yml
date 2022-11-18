@@ -1,0 +1,2 @@
+- name: "mysql驱动"
+  copy: src=/opt/software/mysql-connector-java-5.1.27-bin.jar dest=/data/hive/lib

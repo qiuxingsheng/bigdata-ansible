@@ -1,0 +1,6 @@
+# 注意 该文件执行 ansible-playbook  /data/ansible/role_master.yml 任务后会被覆盖 密码由role_master中的变量指定
+- db_type:
+- db_host:
+- db_port:
+- db_username:
+- db_password:

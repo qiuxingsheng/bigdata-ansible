@@ -1,0 +1,13 @@
+- name: "修改spark-env.sh配置文件"
+  template: src=spark-env.j2 dest=/data/spark/conf/spark-env.sh
+- name: "修改spark-env.sh配置文件"
+  template: src=spark-defaults.j2 dest=/data/spark/conf/spark-defaults.conf
+- name: "修改slaves配置文件"
+  template: src=slaves.j2 dest=/data/spark/conf/slaves
+- name: "hive元数据配置文件"
+  template: src=hive-site.j2 dest=/data/spark/conf/hive-site.xml
+- name: "安装mysql驱动"
+  copy: src=/opt/software/mysql-connector-java-5.1.27-bin.jar dest=/data/spark/jars
+- name: "生成启动集群脚本"
+  template: src=start-spark-cluster.j2 dest=/data/spark/sbin/start-spark-cluster.sh mode=744
+

@@ -1,0 +1,5 @@
+---
+- hosts: hadoop
+  remote_user: root
+  roles:
+    - jdk8

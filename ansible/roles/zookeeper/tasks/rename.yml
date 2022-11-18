@@ -1,0 +1,2 @@
+- name: "zk目录更名"
+  shell: "mv /data/apache-zookeeper-3.6.3-bin /data/zookeeper"

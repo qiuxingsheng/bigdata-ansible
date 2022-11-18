@@ -1,0 +1,13 @@
+- name: "安装依赖1"
+  shell: "rpm -ivh /opt/software/01_mysql-community-common-5.7.16-1.el7.x86_64.rpm --force --nodeps"
+- name: "安装依赖2"
+  shell: "rpm -ivh /opt/software/02_mysql-community-libs-5.7.16-1.el7.x86_64.rpm --force --nodeps"
+- name: "安装依赖3"
+  shell: "rpm -ivh /opt/software/03_mysql-community-libs-compat-5.7.16-1.el7.x86_64.rpm --force --nodeps"
+- name: "安装client"
+  shell: "rpm -ivh /opt/software/04_mysql-community-client-5.7.16-1.el7.x86_64.rpm --force --nodeps"
+- name: "安装server"
+  shell: "rpm -ivh /opt/software/05_mysql-community-server-5.7.16-1.el7.x86_64.rpm --force --nodeps"
+
+
+

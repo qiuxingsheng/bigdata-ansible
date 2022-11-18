@@ -1,0 +1,2 @@
+- name: "datax开始，删除老的数据目录"
+  shell: rm -fr /data/datax

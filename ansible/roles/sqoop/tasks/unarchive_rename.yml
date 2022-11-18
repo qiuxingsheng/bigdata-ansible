@@ -1,0 +1,4 @@
+- name: "解压到/data目录"
+  unarchive: 'src=/opt/software/sqoop-1.4.6.bin__hadoop-2.0.4-alpha.tar.gz dest=/data/'
+- name: "重命名目录"
+  shell: "mv /data/sqoop-1.4.6.bin__hadoop-2.0.4-alpha /data/sqoop"

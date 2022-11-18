@@ -1,0 +1,2 @@
+drop DATABASE IF EXISTS azkaban;
+CREATE DATABASE IF NOT EXISTS azkaban;

@@ -1,0 +1,2 @@
+- name: "解压到/data目录"
+  unarchive: 'src=/opt/software/jdk-8u212-linux-x64.tar.gz dest=/data/'

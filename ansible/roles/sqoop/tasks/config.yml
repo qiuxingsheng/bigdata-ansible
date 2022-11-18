@@ -1,0 +1,6 @@
+- name: "覆盖原sqoop-env.sh文件"
+  copy: src=sqoop-env.sh dest=/data/sqoop/conf/sqoop-env.sh
+- name: "mysql jdbc driver"
+  copy: src=/opt/software/mysql-connector-java-5.1.27-bin.jar dest=/data/sqoop/lib
+
+

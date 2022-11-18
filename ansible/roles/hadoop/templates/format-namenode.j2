@@ -1,0 +1,28 @@
+#!/bin/bash
+# 启动journalnode
+{% for vhost in groups['journalnode'] %} 
+  ssh {{ vhost }} hdfs --daemon start journalnode
+{% endfor %}
+sleep 15s
+
+{% for vhost in groups['namenode'] %}
+  {% if loop.index == 1 %}
+  ssh {{ vhost }} hdfs namenode -format
+  sleep 15s
+  ssh {{ vhost }} hdfs --daemon start namenode
+  sleep 15s
+  {% else %}
+  ssh {{ vhost }}  hdfs namenode -bootstrapStandby
+  sleep 15s
+  {% endif %}
+{% endfor %}
+
+{% for vhost in groups['namenode'] %}
+  {% if loop.index == 1 %}
+# 删除zk中的hadoop-ha节点
+  /data/zookeeper/bin/zkCli.sh deleteall /hadoop-ha
+  sleep 5s
+  ssh {{ vhost }} hdfs zkfc -formatZK
+  sleep 5s
+  {% endif %}
+{% endfor %}

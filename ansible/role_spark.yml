@@ -1,0 +1,18 @@
+---
+- hosts: hadoop
+  remote_user: root
+  vars_files:
+    - /data/ansible/vars/db_vars.yml
+  roles:
+    - role: spark
+- hosts: hadoop
+  remote_user: root
+  tasks:
+    - name:  创建spark-history
+      shell: hadoop fs -mkdir /spark-history
+      run_once: true
+- hosts: master
+  remote_user: root
+  tasks:
+    - name: 启动spark集群
+      shell: /data/spark/sbin/start-spark-cluster.sh

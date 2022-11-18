@@ -1,0 +1,7 @@
+---
+- hosts: azkaban_exec
+  remote_user: root
+  roles:
+    - role: py_task_executor
+      vars:
+        run_mode: intranet

@@ -1,0 +1,11 @@
+# 删除老数据 解压文件
+- include: rm_data.yml
+- include: unarchive_rename.yml
+# web server配置文件
+- include: config.yml
+# 安装mysql 客户端
+- include: install_mysql_client.yml
+# 初始化数据库
+- include: create_metastore.yml
+- include: init_metastore.yml
+

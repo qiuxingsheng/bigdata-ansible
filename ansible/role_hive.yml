@@ -1,0 +1,29 @@
+---
+- hosts: hive
+  remote_user: root
+  vars_files:
+    - /data/ansible/vars/db_vars.yml
+  roles:
+    - role: hive
+# 传纯净版spark jar包到hadoop集群
+- hosts: hadoop
+  remote_user: root
+  tasks:
+    - name: 分发spark jar包
+      unarchive: 'src=/opt/software/spark-3.0.0-bin-without-hadoop.tgz  dest=/tmp/'
+    - name: 创建hadoop /spark-jars目录
+      shell: hadoop fs -mkdir /spark-jars
+      run_once: true
+    - name: 上传jar包
+      shell: hadoop fs -put /tmp/spark-3.0.0-bin-without-hadoop/jars/* /spark-jars
+      run_once: true
+# 启动hiveServer2
+- hosts: hive_server2
+  remote_user: root
+  tasks:
+    - name: 创建日志目录
+      file: name=/data/logs/hive state=directory mode=774
+    - name: 启动hiveServer2
+      shell: nohup hiveserver2 > /data/logs/hive/hiveserver2.log 2>&1 &
+    - name: 启动metastore
+      shell: nohup hive --service metastore 2>&1 >> /data/logs/hive/metastore.log &

@@ -1,0 +1,22 @@
+- name: "trino开始，删除老的数据目录"
+  shell: rm -f -r /data/trino /data/datas/trino-data /data/trino-server-384
+- name: "解压到/data目录"
+  unarchive: 'src=/opt/software/trino-server-384.tar dest=/data/'
+- name: "目录更名"
+  shell: "mv /data/trino-server-384 /data/trino"
+- name: node.properties
+  template: src=node.j2 dest=/data/trino/etc/node.properties
+- name: jvm
+  copy: src=jvm.config dest=/data/trino/etc/jvm.config
+- name: config.properties
+  template: src=config.j2 dest=/data/trino/etc/config.properties
+- name: core-site
+  template: src=core-site.j2 dest=/data/trino/etc/core-site.xml
+- name: hdfs-site
+  template: src=hdfs-site.j2 dest=/data/trino/etc/hdfs-site.xml
+- name: hive
+  template: src=hive.j2 dest=/data/trino/etc/catalog/hive.properties
+- name: launcher
+  copy: src=launcher dest=/data/trino/bin/launcher mode=744
+- name: 启动trino
+  shell: sh /data/trino/bin/launcher start

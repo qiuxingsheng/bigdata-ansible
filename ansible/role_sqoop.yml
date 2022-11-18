@@ -1,0 +1,5 @@
+---
+- hosts: sqoop
+  remote_user: root
+  roles:
+    - sqoop

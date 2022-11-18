@@ -1,0 +1,7 @@
+- name: "azkaban db初始化开始，删除老的数据目录"
+  shell: rm -fr /tmp/azkaban-db-3.84.4
+- name: "解压到/tmp目录"
+  unarchive: 'src=/opt/software/azkaban-db-3.84.4.tar.gz  dest=/tmp'
+- name: "init azkaban_metastore"
+  shell: " mysql -h {{ db_host }} -u {{ db_username }} -p{{ db_password }} --database=azkaban < /tmp/azkaban-db-3.84.4/create-all-sql-3.84.4.sql"
+  run_once: true

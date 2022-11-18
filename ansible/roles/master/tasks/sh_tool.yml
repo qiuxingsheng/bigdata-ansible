@@ -1,0 +1,7 @@
+- name: 创建/root/bin目录
+  file: name=/root/bin state=directory mode=774
+- name: xcall.sh
+  template: src=xcall.j2 dest=/root/bin/xcall.sh mode=744
+- name: xsync.sh
+  template: src=xsync.j2 dest=/root/bin/xsync.sh mode=744
+

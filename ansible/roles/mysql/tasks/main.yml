@@ -1,0 +1,8 @@
+- include: copy.yml
+- include: rm_mariadb_libs.yml
+# 重复安装会报错，但卸载数据库是高危操作，不默认卸载
+- include: install.yml
+- include: init.yml
+- include: config.yml
+- include: start.yml
+- include: update_password.yml

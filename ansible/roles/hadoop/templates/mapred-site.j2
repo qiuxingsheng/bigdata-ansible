@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+<!-- 指定MapReduce程序运行在Yarn上 -->
+<property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+</property>
+<!-- 历史服务器端地址 -->
+<property>
+    <name>mapreduce.jobhistory.address</name>
+    <value>{{ groups['yarn_log_server'][0] }}:10020</value>
+</property>
+<!-- 历史服务器web端地址 -->
+<property>
+    <name>mapreduce.jobhistory.webapp.address</name>
+    <value>{{ groups['yarn_log_server'][0] }}:19888</value>
+</property>
+<!-- 指定AM端口范围 -->
+<property>
+  <name>yarn.app.mapreduce.am.job.client.port-range</name>
+  <value>30000-30020</value>
+</property>
+</configuration>

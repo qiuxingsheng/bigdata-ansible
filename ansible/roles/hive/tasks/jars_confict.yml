@@ -1,0 +1,2 @@
+- name: "解决日志jar包冲突"
+  shell: "mv /data/hive/lib/log4j-slf4j-impl-2.10.0.jar /data/hive/lib/log4j-slf4j-impl-2.10.0.jar.bak"

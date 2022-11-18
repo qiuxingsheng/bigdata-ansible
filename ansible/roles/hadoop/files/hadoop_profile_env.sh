@@ -1,0 +1,13 @@
+#HADOOP_HOME
+export HADOOP_HOME=/data/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+#root用户运行hadoop
+export HADOOP_SHELL_EXECNAME=root
+export HDFS_JOURNALNODE_USER=root
+export HDFS_ZKFC_USER=root
+export HDFS_NAMENODE_USER=root
+export HDFS_DATANODE_USER=root
+export HDFS_SECONDARYNAMENODE_USER=root
+export YARN_RESOURCEMANAGER_USER=root
+export YARN_NODEMANAGER_USER=root

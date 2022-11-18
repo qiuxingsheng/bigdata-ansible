@@ -1,0 +1,2 @@
+- name: "创建data目录"
+  shell:  mkdir -p /data/datas/hadoop /data/logs/hadoop /data/pids/hadoop /data/datas/hadoop/dfs/name

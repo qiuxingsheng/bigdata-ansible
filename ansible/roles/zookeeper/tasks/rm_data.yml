@@ -1,0 +1,2 @@
+- name: "zk开始，删除老的数据目录"
+  shell: rm -f -r /data/zookeeper /data/apache-zookeeper-3.6.3-bin /data/datas/zkData

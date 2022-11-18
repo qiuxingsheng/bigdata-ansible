@@ -1,0 +1,3 @@
+connector.name=hive
+hive.metastore.uri=thrift://{% for vhost in groups['hive_server2'] %}{% if loop.index == 1 %}{{ vhost }}{% endif %}{% endfor %}:9083
+hive.config.resources=/data/trino/etc/core-site.xml,/data/trino/etc/hdfs-site.xml

@@ -1,0 +1,21 @@
+#删除历史目录
+- include: rm_data.yml
+#解压
+- include: unarchive_rename.yml
+# hive环境变量
+- include: hive_profile_env.yml
+#解决日志jar冲突
+- include: jars_confict.yml
+#hive 配置文件
+- include: config.yml
+#jdbc 驱动
+- include: jdbc_drivers.yml
+#安装mysql客户端
+- include: install_mysql_client.yml
+#创建元数据库
+- include: create_metastore.yml
+#初始化元数据
+- include: init_hive_metastore.yml
+# 解决mysql乱码问题
+- include: fix_code.yml
+

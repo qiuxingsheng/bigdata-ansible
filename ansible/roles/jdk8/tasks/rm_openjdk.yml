@@ -1,0 +1,4 @@
+- name: 复制卸载脚本
+  copy: src=rm_openjdk.sh dest=/tmp/rm_openjdk.sh mode=744
+- name: 卸载openjdk
+  shell: /tmp/rm_openjdk.sh 

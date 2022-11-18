@@ -1,0 +1,7 @@
+- name: "复制建库语句到/tmp目录"
+  copy: src=create_azkaban_metastore.sql dest=/tmp
+- name: "create azkaban_metastore"
+  shell: " mysql -h {{ db_host }} -u {{ db_username }} -p{{ db_password }} < /tmp/create_azkaban_metastore.sql "
+  run_once: true
+- name: "删除临时sql文件"
+  file: path=/tmp/create_azkaban_metastore.sql state=absent

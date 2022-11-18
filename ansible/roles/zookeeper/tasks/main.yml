@@ -1,0 +1,8 @@
+- include: rm_data.yml
+- include: mkdir_data.yml
+- include: unarchive.yml
+- include: rename.yml
+- include: write_myid.yml
+- include: config.yml
+- include: start.yml
+

@@ -1,0 +1,5 @@
+- name: 关闭防火墙
+  shell:  systemctl stop firewalld.service
+- name: 关闭防火墙开机启动
+  shell:  systemctl disable firewalld.service
+

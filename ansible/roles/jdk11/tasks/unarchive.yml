@@ -1,0 +1,2 @@
+- name: "解压到/data目录"
+  unarchive: 'src=/opt/software/jdk-11.0.15.tar dest=/data/'

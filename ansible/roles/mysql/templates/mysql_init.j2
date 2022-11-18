@@ -1,0 +1,3 @@
+use mysql;
+update user set authentication_string=password("{{ db_password }}") where user='root';
+update user set host="%" where user="root";

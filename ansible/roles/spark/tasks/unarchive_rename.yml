@@ -1,0 +1,4 @@
+- name: "解压到/data目录"
+  unarchive: 'src=/opt/software/spark-3.0.0-bin-hadoop3.2.tgz dest=/data/'
+- name: "重命名目录"
+  shell: "mv /data/spark-3.0.0-bin-hadoop3.2 /data/spark"

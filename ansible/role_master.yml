@@ -1,0 +1,9 @@
+---
+# 解决某些脚本文件无法兼容wins换行符
+- hosts: master
+  remote_user: root
+  roles:
+    - role: master
+      vars:
+        # 指定mysql的连接密码
+        db_password: Abc1234%

@@ -1,0 +1,5 @@
+---
+- hosts: datax
+  remote_user: root
+  roles:
+    - datax

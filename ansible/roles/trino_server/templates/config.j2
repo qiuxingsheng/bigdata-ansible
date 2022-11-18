@@ -1,0 +1,19 @@
+# 如果是master节点设置为true worker节点设置为false
+coordinator=true
+# master节点是否允许调度，集群设置false 单机设置true
+node-scheduler.include-coordinator=false
+# http端口
+http-server.http.port=8881
+# 单个查询在集群的最大内存
+query.max-memory=96GB
+# 单个查询在每个节点上的最大用户内存
+query.max-memory-per-node=16GB
+# 单个查询在单个节点上的最大用户和系统内存
+#query.max-total-memory-per-node=16GB
+# 发现服务的uri 端口必须跟http-server.http.port一样
+discovery.uri=http://{{ inventory_hostname }}:8881
+# 开启web ui界面
+web-ui.enabled=true
+# 最大执行时间，不是必须可不设置
+query.max-run-time=1800s
+#discovery-server.enabled=true

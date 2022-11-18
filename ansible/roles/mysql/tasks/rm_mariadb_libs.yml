@@ -1,0 +1,4 @@
+- name: 复制卸载脚本
+  copy: src=rm_mariadb.sh dest=/tmp/rm_mariadb.sh mode=744
+- name: 卸载mariadb-libs
+  shell: /tmp/rm_mariadb.sh mode=744

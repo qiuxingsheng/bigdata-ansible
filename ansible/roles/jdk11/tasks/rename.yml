@@ -1,0 +1,2 @@
+- name: "目录更名"
+  shell: "mv /data/jdk-11.0.15 /data/jdk11"

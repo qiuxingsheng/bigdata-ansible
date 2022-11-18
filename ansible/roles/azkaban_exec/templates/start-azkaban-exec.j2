@@ -1,0 +1,6 @@
+#!/bin/bash
+cd /data/azkaban_exec
+nohup ./bin/start-exec.sh > /dev/null &
+# 激活执行节点
+sleep 5s
+curl -G "{{ inventory_hostname }}:12321/executor?action=activate" && echo

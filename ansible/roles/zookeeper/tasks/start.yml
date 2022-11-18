@@ -1,0 +1,2 @@
+- name: "启动zk"
+  shell: /data/zookeeper/bin/zkServer.sh start

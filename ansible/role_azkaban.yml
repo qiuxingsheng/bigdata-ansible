@@ -1,0 +1,17 @@
+- hosts: azkaban_server
+  remote_user: root
+  vars_files:
+    - /data/ansible/vars/db_vars.yml
+  roles:
+    - role: azkaban_server
+- hosts: azkaban_exec
+  remote_user: root
+  vars_files:
+    - /data/ansible/vars/db_vars.yml
+  roles:
+    - role: azkaban_exec
+- hosts: azkaban_server
+  remote_user: root
+  tasks: 
+    - name: 启动server
+      shell: sh /tmp/start-azkaban-server.sh

@@ -1,0 +1,3 @@
+- name: "修改zk配置文件"
+  template: src=zoo.j2 dest=/data/zookeeper/conf/zoo.cfg
+  notify: restart

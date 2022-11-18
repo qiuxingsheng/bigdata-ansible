@@ -1,0 +1,2 @@
+- name: "start"
+  shell: "systemctl restart mysqld"

@@ -1,0 +1,9 @@
+#! /bin/bash
+ 
+for i in {% for vhost in groups['hadoop'] %}{{ vhost }} {% endfor %}
+
+do
+    echo --------- $i ----------
+    ssh $i "$*"
+done
+

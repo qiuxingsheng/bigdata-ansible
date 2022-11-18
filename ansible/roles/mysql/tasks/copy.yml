@@ -1,0 +1,11 @@
+- name: "复制安装文件"
+  copy: src=/opt/software/01_mysql-community-common-5.7.16-1.el7.x86_64.rpm dest=/opt/software/
+- name: "复制安装文件"
+  copy: src=/opt/software/02_mysql-community-libs-5.7.16-1.el7.x86_64.rpm dest=/opt/software/
+- name: "复制安装文件"
+  copy: src=/opt/software/03_mysql-community-libs-compat-5.7.16-1.el7.x86_64.rpm dest=/opt/software/
+- name: "复制安装文件"
+  copy: src=/opt/software/04_mysql-community-client-5.7.16-1.el7.x86_64.rpm dest=/opt/software/
+- name: "复制安装文件"
+  copy: src=/opt/software/05_mysql-community-server-5.7.16-1.el7.x86_64.rpm dest=/opt/software/
+
