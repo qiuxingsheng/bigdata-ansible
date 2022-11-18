@@ -11,6 +11,10 @@ hosts 为要管理的主机地址分组，此处也作为大数据集群的角�
 ## /opt/software
 存放要进行安装的软件包，需要上传到ansible主控机的/opt/software目录
 
+软件下载地址
+链接：https://pan.baidu.com/s/1lPrJVnNl0ampLUdIBFCbsQ
+提取码：bp7t
+
 ## /data/ansible
 存放自动化部署的过程脚本，执行示例
 ````
