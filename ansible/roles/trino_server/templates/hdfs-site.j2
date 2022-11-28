@@ -27,6 +27,11 @@
    <name>dfs.namenode.shared.edits.dir</name>
    <value>qjournal://{% for vhost in groups['journalnode'] %}{{ vhost }}:8485{% if loop.index != groups['journalnode']|length %};{% endif %}{% endfor %}/mycluster</value>
 </property>
+<!-- 与journal通信默认20秒容易超时这里设置60秒 -->
+<property>
+   <name>dfs.qjournal.write-txns.timeout.ms</name>
+    <value>60000</value>
+</property>
 <!--声明journalnode服务器数据存储目录-->
 <property>
     <name>dfs.journalnode.edits.dir</name>
