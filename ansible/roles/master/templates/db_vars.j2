@@ -2,6 +2,6 @@
 - db_type: mysql
 - db_host: {% for vhost in groups['mysql'] %}{% if loop.index == groups['mysql']|length %}{{ vhost }}{% endif %}{% endfor %}
 
-- db_port: 3306
-- db_username: root
-- db_password: {{ db_password }}
+- db_port: {{ init_db_port }}
+- db_username: {{ init_db_username }}
+- db_password: {{ init_db_password }}
