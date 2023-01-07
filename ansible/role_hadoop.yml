@@ -15,3 +15,8 @@
       shell:  /data/hadoop/sbin/start-dfs.sh
     - name: 启动resourcemanager、nodemanager
       shell:  /data/hadoop/sbin/start-yarn.sh
+- hosts: yarn_log_server
+  remote_user: root
+  tasks:
+    - name: 启动yarn_log_server
+      shell:  mr-jobhistory-daemon.sh start historyserver
