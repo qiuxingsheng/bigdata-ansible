@@ -13,7 +13,7 @@ hosts 为要管理的主机地址分组，此处也作为大数据集群的角�
 
 软件下载地址
 链接：https://pan.baidu.com/s/1lPrJVnNl0ampLUdIBFCbsQ
-提取码：bp7t
+
 
 ## /data/ansible
 存放自动化部署的过程脚本，执行示例
@@ -152,7 +152,7 @@ ansible all -m ping
 
 **注意** 安装脚本的相对路径不要变
 ### 4.3、修改配置文件
-修改fosung-bigdata-task.zip 中的task_executor/config目录下的配置文件
+修改bigdata-task.zip 中的task_executor/config目录下的配置文件
 
 修改下列几个文件的数据库配置信息
 
@@ -180,7 +180,7 @@ ansible-playbook  /data/ansible/role_jdk.yml
 
 # 待优化
 
-fosung-bigdata-task.zip 中接口和数据库地址需要修改
+bigdata-task.zip 中接口和数据库地址需要修改
 
 安装路径等很多都是写死，后期可以优化变量的配置
 

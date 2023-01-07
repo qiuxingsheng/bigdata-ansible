@@ -1,3 +1,3 @@
 #PYTHONPATH
-export PYTHONPATH=/data/projects/fosung-bigdata-task/task_executor
+export PYTHONPATH=/data/projects/bigdata-task/task_executor
 

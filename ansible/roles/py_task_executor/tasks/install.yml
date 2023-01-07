@@ -1,10 +1,10 @@
 - name: "py_task_executor开始，删除老的数据目录"
-  shell: rm -fr /data/projects/fosung-bigdata-task
+  shell: rm -fr /data/projects/bigdata-task
 - name: 创建/data/projects 目录
   file:
-    path: /data/projects/fosung-bigdata-task
+    path: /data/projects/bigdata-task
     state: directory
     mode: '0755'
 - name: "解压到/data目录"
-  unarchive: 'src=/opt/software/task_executor.tar  dest=/data/projects/fosung-bigdata-task'
+  unarchive: 'src=/opt/software/task_executor.tar  dest=/data/projects/bigdata-task'
 
