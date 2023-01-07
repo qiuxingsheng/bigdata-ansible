@@ -29,6 +29,16 @@ ansible-playbook  /data/ansible/role_jdk.yml
 ````
 yum install ansible
 ````
+如果无法在线安装 可使用软件安装目录中的离线安装包
+
+````
+#解压依赖包
+tar -xzvf /opt/software/ansible-package.tar.gz
+#安装依赖包
+rpm -ivh /opt/software/ansible-package/*rpm --nodeps --force
+#安装ansible
+rpm -ivh /opt/software/ansible-2.9.27-1.el7.noarch.rpm
+````
 修改ansible配置
 ````
 vi /etc/ansible/ansible.cfg
