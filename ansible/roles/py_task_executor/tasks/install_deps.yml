@@ -1,3 +1,5 @@
+- name: 安装python3
+  yum:  name=python3
 - name: 创建环境路径
   file:  name=/usr/lib64/python3.6/site-packages state=directory mode=774
 - name: 创建环境路径
