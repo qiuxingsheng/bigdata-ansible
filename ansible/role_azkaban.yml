@@ -12,6 +12,6 @@
     - role: azkaban_exec
 - hosts: azkaban_server
   remote_user: root
-  tasks: 
+  tasks:
     - name: 启动server
-      shell: sh /tmp/start-azkaban-server.sh
+      shell: sh /data/azkaban_server/bin/start-fs-azkaban-server.sh

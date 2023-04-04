@@ -3,4 +3,4 @@
 - name: "修改默认密码"
   copy: src=azkaban-users.xml dest=/data/azkaban_server/conf/azkaban-users.xml mode=744
 - name: "生成启动脚本"
-  copy: src=start-azkaban-server.sh dest=/tmp/start-azkaban-server.sh mode=744
+  copy: src=start-azkaban-server.sh dest=/data/azkaban_server/bin/start-fs-azkaban-server.sh mode=744
