@@ -1,3 +1,5 @@
+- name: "修改works配置文件"
+  template: src=workers.j2 dest=/data/hadoop/etc/hadoop/workers
 - name: "修改core-site配置文件"
   template: src=core-site.j2 dest=/data/hadoop/etc/hadoop/core-site.xml
 - name: "修改hdfs-site配置文件"
